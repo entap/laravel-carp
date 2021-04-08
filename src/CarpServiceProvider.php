@@ -18,6 +18,9 @@ class CarpServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->registerMigrations();
             $this->registerCommands();
+
+            $this->publishesConfigurations();
+            $this->publishesMigrations();
         }
     }
 
@@ -40,7 +43,7 @@ class CarpServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the commands
+     * Register the commands.
      */
     protected function registerCommands(): void
     {
@@ -49,5 +52,31 @@ class CarpServiceProvider extends ServiceProvider
             ListPackages::class,
             PublishRelease::class,
         ]);
+    }
+
+    /**
+     * Publishes the config files.
+     */
+    protected function publishesConfigurations()
+    {
+        $this->publishes(
+            [__DIR__ . '/../config/carp.php' => config_path('carp.php')],
+            'config'
+        );
+    }
+
+    /**
+     * Publishes the migration files.
+     */
+    protected function publishesMigrations()
+    {
+        $this->publishes(
+            [
+                __DIR__ . '/../database/migrations' => database_path(
+                    'migrations'
+                ),
+            ],
+            'migrations'
+        );
     }
 }
