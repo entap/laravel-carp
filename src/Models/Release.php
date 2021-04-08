@@ -2,14 +2,18 @@
 
 namespace Entap\Laravel\Carp\Models;
 
+use Entap\Laravel\Carp\Database\Factories\ReleaseFactory;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * リリース
  */
 class Release extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'name',
         'url',
@@ -101,5 +105,15 @@ class Release extends Model
     public function isNewerThan(string $version): bool
     {
         return version_compare($this->name, $version, '>');
+    }
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public static function newFactory()
+    {
+        return ReleaseFactory::new();
     }
 }
