@@ -12,7 +12,9 @@ class CarpServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if ($this->app->runningInConsole()) {
+            $this->registerMigrations();
+        }
     }
 
     /**
@@ -22,6 +24,11 @@ class CarpServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->registerMigrations();
+    }
+
+    protected function registerMigrations()
+    {
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 }
