@@ -22,7 +22,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Entap\\Laravel\\Passport\\Tests\\": "tests/"
+            "Entap\\Laravel\\Carp\\Tests\\": "tests/"
         }
     },
     "extra": {
@@ -31,5 +31,10 @@
                 "Entap\\Laravel\\Carp\\CarpServiceProvider"
             ]
         }
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.4",
+        "orchestra/testbench": "^6.17",
+        "phpunit/phpunit": "^9.5"
     }
 }
