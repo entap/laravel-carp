@@ -27,6 +27,9 @@ class CarpServiceProvider extends ServiceProvider
         $this->registerMigrations();
     }
 
+    /**
+     * Register the migration files.
+     */
     protected function registerMigrations()
     {
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
