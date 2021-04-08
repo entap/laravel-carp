@@ -1,6 +1,7 @@
 <?php
 namespace Entap\Laravel\Carp\Tests\Feature;
 
+use Entap\Laravel\Carp\Carp;
 use Entap\Laravel\Carp\CarpServiceProvider;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -15,6 +16,8 @@ abstract class TestCase extends BaseTestCase
         parent::setUp();
 
         $this->artisan('migrate:fresh');
+
+        Carp::routes();
     }
 
     protected function getPackageProviders($app)

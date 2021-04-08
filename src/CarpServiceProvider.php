@@ -31,7 +31,7 @@ class CarpServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerMigrations();
+        $this->mergeConfigFrom(__DIR__ . '/../config/carp.php', 'carp');
     }
 
     /**
