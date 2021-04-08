@@ -1,0 +1,34 @@
+{
+    "name": "entap/laravel-carp",
+    "description": "Laravel Package Manager API",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ii masamitsu",
+            "email": "ii@entap.co.jp"
+        }
+    ],
+    "require": {
+        "php": "^7.2|^8.0",
+        "illuminate/support": "^8.36"
+    },
+    "autoload": {
+        "psr-4": {
+            "Entap\\Laravel\\Carp\\": "src/",
+            "Entap\\Laravel\\Carp\\Database\\Factories\\": "database/factories/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Entap\\Laravel\\Passport\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Entap\\Laravel\\Carp\\CarpServiceProvider"
+            ]
+        }
+    }
+}
